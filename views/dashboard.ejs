@@ -21,12 +21,12 @@
     </div>
   </div>
 </nav>
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= name %> </p>
+<h1 class="mt-4">Welcome <%= name %> </h1>
+<p class="lead mb-3">Here you can see all your posts </p>
 <div class="row">
   <% posts.forEach( (element) => { %>
     <div class="col-md-4 mb-3 mt-3">
-      <div class="card  border-secondary" style="max-width: 20rem;">
+      <div class="card  border-secondary" style="max-width: 15rem;">
         <div class="card-header">
           <%= element.status %> 
         </div>
@@ -38,8 +38,8 @@
             <%- element.body %>
               <form action="/posts/<%= element._id %>" method="POST" id="delete-form" class="row mt-2 justify-content-around">
                 <input type="hidden" name="_method" value="DELETE">
-                <a href="/posts/edit/<%= element._id %>" class="btn btn-primary col-3 btn-sm">Edit</a>
-                <button type="submit" class="btn btn-secondary btn-sm col-3">Delete</button>
+                <a href="/posts/edit/<%= element._id %>" class="btn btn-primary col-4 btn-sm">Edit</a>
+                <button type="submit" class="btn btn-secondary btn-sm col-4">Delete</button>
               </form>
           </p>
         </div>
