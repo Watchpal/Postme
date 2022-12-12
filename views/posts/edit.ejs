@@ -1,0 +1,22 @@
+<form action="/posts/<%= post._id %> " method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <fieldset>
+    <legend>Edit your Post</legend>
+    <div class="form-group">
+      <label for="exampleInputPassword1" class="form-label mt-4">Title</label>
+      <input type="text" class="form-control" name="title" id="exampleInputPassword1" placeholder="Title" value="<%- post.title %> ">
+    </div>
+    <div class="form-group">
+      <label for="exampleSelect1" class="form-label mt-4">Select type of your Post</label>
+      <select class="form-select" name="status" id="exampleSelect1">
+        <option>Public</option>
+        <option>Private</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea" class="form-label mt-4">Example textarea</label>
+      <textarea class="form-control" name="body" id="body" rows="3"><%- post.body %> </textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
