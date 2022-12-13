@@ -4,7 +4,7 @@ import { Post } from '../models/Post.js';
 const router = express.Router();
 
 
-router.get('/', (req, res) => res.render('welcome'));
+router.get('/', (req, res) => res.render('welcome', { layout: '../views/layouts/extra'}));
 
 router.get('/dashboard', ensureAuth.ensureAuthenticated, async (req, res) => {
   try {
@@ -12,7 +12,8 @@ router.get('/dashboard', ensureAuth.ensureAuthenticated, async (req, res) => {
     //console.log(posts)
     res.render('dashboard', {
       name: req.user.name,
-      posts
+      posts,
+      pageName: 'dashboard'
     })
   } catch (err) {
     console.log(err)

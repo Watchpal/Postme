@@ -5,9 +5,9 @@ import passport from 'passport';
 
 const router = express.Router();
 
-router.get('/login', (req, res) => res.render('login'));
+router.get('/login', (req, res) => res.render('login', { layout: '../views/layouts/extra'}));
 
-router.get('/register', (req, res) => res.render('register'));
+router.get('/register', (req, res) => res.render('register', { layout: '../views/layouts/extra'}));
 
 router.post('/register', (req, res) => {
   const { name, email, password, password2 } = req.body;
@@ -31,7 +31,8 @@ router.post('/register', (req, res) => {
       name,
       email,
       password,
-      password2
+      password2,
+      layout: '../views/layouts/extra'
     });
   } else {
     User.findOne({ email: email })
@@ -43,7 +44,8 @@ router.post('/register', (req, res) => {
             name,
             email,
             password,
-            password2
+            password2,
+            layout: '../views/layouts/extra'
           });
         } else {
           const newUser = new User({

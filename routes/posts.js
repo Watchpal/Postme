@@ -5,7 +5,9 @@ const router = express.Router();
 
 
 router.get('/add', ensureAuth.ensureAuthenticated, (req, res) => {
-    res.render('posts/add')
+    res.render('posts/add', {
+      pageName: 'add'
+    })
 });
 
 router.post('/', ensureAuth.ensureAuthenticated, async (req, res) => {
@@ -28,6 +30,7 @@ router.get('/', ensureAuth.ensureAuthenticated, async (req, res) => {
         
         res.render('posts/index', {
           posts,
+          pageName: 'public'
                })
                //console.log(posts);
   } catch (err) {
@@ -45,6 +48,7 @@ router.get('/edit/:id', ensureAuth.ensureAuthenticated, async (req, res) => {
   } else {
     res.render('posts/edit', {
       post,
+      pageName: 'edit'
     })
   }
 });

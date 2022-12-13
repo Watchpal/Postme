@@ -35,6 +35,7 @@ mongoose.connect(db, { useNewUrlParser: true})
 
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.set('layout', 'layouts/main');
 
 app.use(express.urlencoded({ extended: false}));
 
